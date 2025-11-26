@@ -140,10 +140,10 @@ export default function Classes() {
           <Card className="p-4 bg-accent/10 border-accent/30 mt-4">
             <h4 className="text-sm font-semibold text-foreground mb-2">Example Usage:</h4>
             <div className="font-mono text-sm space-y-1">
-              <div><span className="text-code-keyword">const</span> <span className="text-foreground">cat</span> = <span className="text-code-keyword">new</span> Cat(<span className="text-code-string">"Zaphod"</span>, <span className="text-code-string">"orange"</span>);</div>
-              <div><span className="text-foreground">cat.name</span> <span className="text-code-comment">// "Zaphod" - Named after a Galactic President</span></div>
-              <div><span className="text-foreground">cat.makeSound()</span> <span className="text-code-comment">// "Zaphod says Meow!"</span></div>
-              <div><span className="text-foreground">cat.purr()</span> <span className="text-code-comment">// "Zaphod is purring"</span></div>
+              <div><span className="text-code-keyword">const</span> <span className="text-foreground">cat</span> = <span className="text-code-keyword">new</span> Cat(<span className="text-code-string">"Ford Prefect"</span>, <span className="text-code-string">"orange"</span>);</div>
+              <div><span className="text-foreground">cat.name</span> <span className="text-code-comment">// "Ford Prefect" - A roving researcher for that wholly remarkable book</span></div>
+              <div><span className="text-foreground">cat.makeSound()</span> <span className="text-code-comment">// "Ford Prefect says Meow!"</span></div>
+              <div><span className="text-foreground">cat.purr()</span> <span className="text-code-comment">// "Ford Prefect is purring"</span></div>
             </div>
           </Card>
 
