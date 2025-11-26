@@ -1,5 +1,5 @@
 import { TopicLayout, Section, UseCase } from "@/components/TopicLayout";
-import { CodeEditor } from "@/components/CodeEditor";
+import { Card } from "@/components/ui/card";
 
 export default function Generics() {
   return (
@@ -12,30 +12,30 @@ export default function Generics() {
           title="Type Parameters in Functions"
           description="Create functions that work with any type while maintaining type safety"
         >
-          <CodeEditor
-            title="Basic Generic Function"
-            initialCode={`// In TypeScript: function identity<T>(value: T): T
-function identity(value) {
-  return value;
-}
+          <div className="bg-code-bg p-4 rounded-lg font-mono text-sm border border-border mb-4">
+            <div className="text-code-comment">// Generic function with type parameter T</div>
+            <div><span className="text-code-keyword">function</span> <span className="text-foreground">identity</span>&lt;<span className="text-code-keyword">T</span>&gt;(<span className="text-foreground">value</span><span className="text-code-keyword">: T</span>)<span className="text-code-keyword">: T</span> {'{'}</div>
+            <div className="ml-4"><span className="text-code-keyword">return</span> value;</div>
+            <div>{'}'}</div>
+            
+            <div className="mt-3 text-code-comment">// Generic array function</div>
+            <div><span className="text-code-keyword">function</span> <span className="text-foreground">firstElement</span>&lt;<span className="text-code-keyword">T</span>&gt;(<span className="text-foreground">arr</span><span className="text-code-keyword">: T[]</span>)<span className="text-code-keyword">: T | undefined</span> {'{'}</div>
+            <div className="ml-4"><span className="text-code-keyword">return</span> arr[<span className="text-code-number">0</span>];</div>
+            <div>{'}'}</div>
+            
+            <div className="mt-3 text-code-comment">// TypeScript infers the type automatically</div>
+            <div><span className="text-code-keyword">const</span> <span className="text-foreground">num</span> = identity(<span className="text-code-number">42</span>); <span className="text-code-comment">// T is inferred as number</span></div>
+            <div><span className="text-code-keyword">const</span> <span className="text-foreground">str</span> = identity(<span className="text-code-string">"Hello"</span>); <span className="text-code-comment">// T is inferred as string</span></div>
+            
+            <div className="mt-3"><span className="text-code-keyword">const</span> <span className="text-foreground">firstNum</span> = firstElement([<span className="text-code-number">1</span>, <span className="text-code-number">2</span>, <span className="text-code-number">3</span>]); <span className="text-code-comment">// number | undefined</span></div>
+            <div><span className="text-code-keyword">const</span> <span className="text-foreground">firstName</span> = firstElement([<span className="text-code-string">"Alice"</span>, <span className="text-code-string">"Bob"</span>]); <span className="text-code-comment">// string | undefined</span></div>
+          </div>
 
-// In TypeScript: function firstElement<T>(arr: T[]): T | undefined
-function firstElement(arr) {
-  return arr[0];
-}
-
-// TypeScript would infer types automatically
-const num = identity(42);
-const str = identity("Hello");
-
-const firstNum = firstElement([1, 2, 3]);
-const firstName = firstElement(["Alice", "Bob"]);
-
-console.log(\`Number: \${num}\`);
-console.log(\`String: \${str}\`);
-console.log(\`First number: \${firstNum}\`);
-console.log(\`First name: \${firstName}\`);`}
-          />
+          <div className="bg-secondary p-3 rounded-lg">
+            <p className="text-sm text-muted-foreground">
+              💡 <strong>Key Point:</strong> The <code className="text-primary">&lt;T&gt;</code> is a type parameter - a placeholder for a type that's determined when the function is called. This lets one function work with many types safely.
+            </p>
+          </div>
         </UseCase>
       </Section>
 
@@ -44,105 +44,120 @@ console.log(\`First name: \${firstName}\`);`}
           title="Generic Interfaces and Types"
           description="Define reusable data structures that work with any type"
         >
-          <CodeEditor
-            title="Generic Data Structures"
-            initialCode={`// In TypeScript: interface Box<T> { value: T; isEmpty: boolean; }
-// In TypeScript: type Result<T> = { success: boolean; data: T; message: string; }
+          <div className="bg-code-bg p-4 rounded-lg font-mono text-sm border border-border mb-4">
+            <div className="text-code-comment">// Generic interface</div>
+            <div><span className="text-code-keyword">interface</span> <span className="text-code-keyword">Box</span>&lt;<span className="text-code-keyword">T</span>&gt; {'{'}</div>
+            <div className="ml-4"><span className="text-foreground">value</span><span className="text-code-keyword">: T</span>;</div>
+            <div className="ml-4"><span className="text-foreground">isEmpty</span><span className="text-code-keyword">: boolean</span>;</div>
+            <div>{'}'}</div>
+            
+            <div className="mt-3 text-code-comment">// Generic type alias</div>
+            <div><span className="text-code-keyword">type</span> <span className="text-code-keyword">Result</span>&lt;<span className="text-code-keyword">T</span>&gt; = {'{'}</div>
+            <div className="ml-4"><span className="text-foreground">success</span><span className="text-code-keyword">: boolean</span>;</div>
+            <div className="ml-4"><span className="text-foreground">data</span><span className="text-code-keyword">: T</span>;</div>
+            <div className="ml-4"><span className="text-foreground">message</span><span className="text-code-keyword">: string</span>;</div>
+            <div>{'}'}</div>
+            
+            <div className="mt-3 text-code-comment">// Using the generic types</div>
+            <div><span className="text-code-keyword">const</span> <span className="text-foreground">numberBox</span><span className="text-code-keyword">: Box&lt;number&gt;</span> = {'{'}</div>
+            <div className="ml-4"><span className="text-foreground">value</span>: <span className="text-code-number">100</span>,</div>
+            <div className="ml-4"><span className="text-foreground">isEmpty</span>: <span className="text-code-keyword">false</span></div>
+            <div>{'}'};</div>
+            
+            <div className="mt-3"><span className="text-code-keyword">const</span> <span className="text-foreground">stringBox</span><span className="text-code-keyword">: Box&lt;string&gt;</span> = {'{'}</div>
+            <div className="ml-4"><span className="text-foreground">value</span>: <span className="text-code-string">"TypeScript"</span>,</div>
+            <div className="ml-4"><span className="text-foreground">isEmpty</span>: <span className="text-code-keyword">false</span></div>
+            <div>{'}'};</div>
+            
+            <div className="mt-3"><span className="text-code-keyword">const</span> <span className="text-foreground">result</span><span className="text-code-keyword">: Result&lt;number[]&gt;</span> = {'{'}</div>
+            <div className="ml-4"><span className="text-foreground">success</span>: <span className="text-code-keyword">true</span>,</div>
+            <div className="ml-4"><span className="text-foreground">data</span>: [<span className="text-code-number">1</span>, <span className="text-code-number">2</span>, <span className="text-code-number">3</span>],</div>
+            <div className="ml-4"><span className="text-foreground">message</span>: <span className="text-code-string">"Data loaded"</span></div>
+            <div>{'}'};</div>
+          </div>
 
-const numberBox = {
-  value: 100,
-  isEmpty: false
-};
-
-const stringBox = {
-  value: "TypeScript",
-  isEmpty: false
-};
-
-const result = {
-  success: true,
-  data: [1, 2, 3],
-  message: "Data loaded successfully"
-};
-
-console.log(\`Number box: \${numberBox.value}\`);
-console.log(\`String box: \${stringBox.value}\`);
-console.log(\`Result data: [\${result.data.join(", ")}]\`);`}
-          />
+          <div className="bg-secondary p-3 rounded-lg">
+            <p className="text-sm text-muted-foreground">
+              💡 <strong>Use Case:</strong> Generic interfaces are perfect for containers, wrappers, and API response types that can hold different data types.
+            </p>
+          </div>
         </UseCase>
 
         <UseCase
           title="Generic Classes"
           description="Build flexible class implementations that work with multiple types"
         >
-          <CodeEditor
-            title="Generic Class Example"
-            initialCode={`// In TypeScript: class Stack<T> with private items: T[]
-class Stack {
-  constructor() {
-    this.items = [];
-  }
+          <div className="bg-code-bg p-4 rounded-lg font-mono text-sm border border-border mb-4">
+            <div><span className="text-code-keyword">class</span> <span className="text-code-keyword">Stack</span>&lt;<span className="text-code-keyword">T</span>&gt; {'{'}</div>
+            <div className="ml-4"><span className="text-code-keyword">private</span> <span className="text-foreground">items</span><span className="text-code-keyword">: T[]</span> = [];</div>
+            
+            <div className="mt-3 ml-4"><span className="text-foreground">push</span>(<span className="text-foreground">item</span><span className="text-code-keyword">: T</span>)<span className="text-code-keyword">: void</span> {'{'}</div>
+            <div className="ml-8"><span className="text-code-keyword">this</span>.items.push(item);</div>
+            <div className="ml-4">{'}'}</div>
+            
+            <div className="mt-3 ml-4"><span className="text-foreground">pop</span>()<span className="text-code-keyword">: T | undefined</span> {'{'}</div>
+            <div className="ml-8"><span className="text-code-keyword">return this</span>.items.pop();</div>
+            <div className="ml-4">{'}'}</div>
+            
+            <div className="mt-3 ml-4"><span className="text-foreground">peek</span>()<span className="text-code-keyword">: T | undefined</span> {'{'}</div>
+            <div className="ml-8"><span className="text-code-keyword">return this</span>.items[<span className="text-code-keyword">this</span>.items.length - <span className="text-code-number">1</span>];</div>
+            <div className="ml-4">{'}'}</div>
+            <div>{'}'}</div>
+            
+            <div className="mt-3 text-code-comment">// Create typed stacks</div>
+            <div><span className="text-code-keyword">const</span> <span className="text-foreground">numberStack</span> = <span className="text-code-keyword">new</span> Stack&lt;<span className="text-code-keyword">number</span>&gt;();</div>
+            <div>numberStack.push(<span className="text-code-number">10</span>); <span className="text-code-comment">// ✓ OK</span></div>
+            <div className="text-code-comment">// numberStack.push("hello"); // ❌ Error: string not assignable to number</div>
+            
+            <div className="mt-3"><span className="text-code-keyword">const</span> <span className="text-foreground">stringStack</span> = <span className="text-code-keyword">new</span> Stack&lt;<span className="text-code-keyword">string</span>&gt;();</div>
+            <div>stringStack.push(<span className="text-code-string">"hello"</span>); <span className="text-code-comment">// ✓ OK</span></div>
+          </div>
 
-  push(item) {
-    this.items.push(item);
-  }
-
-  pop() {
-    return this.items.pop();
-  }
-
-  peek() {
-    return this.items[this.items.length - 1];
-  }
-
-  size() {
-    return this.items.length;
-  }
-}
-
-const numberStack = new Stack();
-numberStack.push(10);
-numberStack.push(20);
-numberStack.push(30);
-
-console.log(\`Stack size: \${numberStack.size()}\`);
-console.log(\`Top element: \${numberStack.peek()}\`);
-console.log(\`Popped: \${numberStack.pop()}\`);
-console.log(\`New size: \${numberStack.size()}\`);`}
-          />
+          <div className="bg-secondary p-3 rounded-lg">
+            <p className="text-sm text-muted-foreground">
+              💡 <strong>Real-World Example:</strong> Generic classes power data structures like arrays, maps, sets, and custom collections in TypeScript's standard library.
+            </p>
+          </div>
         </UseCase>
 
         <UseCase
           title="Generic Constraints"
           description="Limit generic types to those with specific properties or capabilities"
         >
-          <CodeEditor
-            title="Constrained Generics"
-            initialCode={`// In TypeScript: function logLength<T extends { length: number }>(item: T): void
-function logLength(item) {
-  console.log(\`Length: \${item.length}\`);
-}
+          <div className="bg-code-bg p-4 rounded-lg font-mono text-sm border border-border mb-4">
+            <div className="text-code-comment">// T must have a length property</div>
+            <div><span className="text-code-keyword">function</span> <span className="text-foreground">logLength</span>&lt;<span className="text-code-keyword">T extends</span> {'{'} <span className="text-foreground">length</span><span className="text-code-keyword">: number</span> {'}'}&gt;(<span className="text-foreground">item</span><span className="text-code-keyword">: T</span>)<span className="text-code-keyword">: void</span> {'{'}</div>
+            <div className="ml-4">console.log(<span className="text-code-string">`Length: ${'${item.length}'}`</span>);</div>
+            <div>{'}'}</div>
+            
+            <div className="mt-3 text-code-comment">// T must extend HasId interface</div>
+            <div><span className="text-code-keyword">interface</span> <span className="text-code-keyword">HasId</span> {'{'}</div>
+            <div className="ml-4"><span className="text-foreground">id</span><span className="text-code-keyword">: number</span>;</div>
+            <div>{'}'}</div>
+            
+            <div className="mt-3"><span className="text-code-keyword">function</span> <span className="text-foreground">findById</span>&lt;<span className="text-code-keyword">T extends HasId</span>&gt;(<span className="text-foreground">items</span><span className="text-code-keyword">: T[]</span>, <span className="text-foreground">id</span><span className="text-code-keyword">: number</span>)<span className="text-code-keyword">: T | undefined</span> {'{'}</div>
+            <div className="ml-4"><span className="text-code-keyword">return</span> items.find(<span className="text-foreground">item</span> {'=> item.id === id'});</div>
+            <div>{'}'}</div>
+            
+            <div className="mt-3 text-code-comment">// These work because they have length</div>
+            <div>logLength(<span className="text-code-string">"Hello"</span>); <span className="text-code-comment">// ✓ strings have length</span></div>
+            <div>logLength([<span className="text-code-number">1</span>, <span className="text-code-number">2</span>, <span className="text-code-number">3</span>]); <span className="text-code-comment">// ✓ arrays have length</span></div>
+            <div className="text-code-comment">// logLength(42); // ❌ Error: numbers don't have length</div>
+            
+            <div className="mt-3 text-code-comment">// Using constrained generic</div>
+            <div><span className="text-code-keyword">const</span> <span className="text-foreground">users</span> = [</div>
+            <div className="ml-4">{'{'} <span className="text-foreground">id</span>: <span className="text-code-number">1</span>, <span className="text-foreground">name</span>: <span className="text-code-string">"Alice"</span> {'}'},</div>
+            <div className="ml-4">{'{'} <span className="text-foreground">id</span>: <span className="text-code-number">2</span>, <span className="text-foreground">name</span>: <span className="text-code-string">"Bob"</span> {'}'}</div>
+            <div>];</div>
+            <div><span className="text-code-keyword">const</span> <span className="text-foreground">found</span> = findById(users, <span className="text-code-number">2</span>); <span className="text-code-comment">// Works! Users have id property</span></div>
+          </div>
 
-// In TypeScript: interface HasId { id: number; }
-// In TypeScript: function findById<T extends HasId>(items: T[], id: number): T | undefined
-function findById(items, id) {
-  return items.find(item => item.id === id);
-}
-
-// These work because they have length property
-logLength("Hello");
-logLength([1, 2, 3, 4]);
-logLength({ length: 10, value: "test" });
-
-// Using the generic function
-const users = [
-  { id: 1, name: "Alice" },
-  { id: 2, name: "Bob" }
-];
-
-const found = findById(users, 2);
-console.log(\`Found user: \${found?.name}\`);`}
-          />
+          <div className="bg-secondary p-3 rounded-lg">
+            <p className="text-sm text-muted-foreground">
+              💡 <strong>Key Point:</strong> Constraints (<code className="text-primary">extends</code>) let you ensure generic types have the properties or methods you need. 
+              This gives you type safety while maintaining flexibility.
+            </p>
+          </div>
         </UseCase>
       </Section>
     </TopicLayout>

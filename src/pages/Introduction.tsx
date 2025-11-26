@@ -1,5 +1,4 @@
 import { TopicLayout, Section, UseCase } from "@/components/TopicLayout";
-import { CodeEditor } from "@/components/CodeEditor";
 import { Card } from "@/components/ui/card";
 import { CheckCircle2 } from "lucide-react";
 
@@ -31,21 +30,24 @@ export default function Introduction() {
           title="See the Difference: JavaScript vs TypeScript"
           description="Compare the same code written in JavaScript and TypeScript"
         >
-          <CodeEditor
-            title="JavaScript - Runtime Errors Waiting to Happen"
-            initialCode={`// JavaScript - No type checking
-function calculatePrice(price, quantity, discount) {
-  const subtotal = price * quantity;
-  const discountAmount = subtotal * discount;
-  return subtotal - discountAmount;
-}
-
-// These produce unexpected results at runtime
-console.log("Test 1:", calculatePrice("50", "2", 0.1));  // "5050" - string concatenation!
-console.log("Test 2:", calculatePrice(50, null, 0.1));   // 0 - null coerces to 0
-console.log("Test 3:", calculatePrice());                 // NaN - undefined values
-console.log("Expected:", calculatePrice(50, 2, 0.1));    // 90 - correct calculation`}
-          />
+          <Card className="p-6 bg-card border-border mb-6">
+            <h3 className="text-lg font-semibold text-foreground mb-3">JavaScript - Runtime Errors Waiting to Happen</h3>
+            
+            <div className="bg-code-bg p-4 rounded-lg font-mono text-sm mb-4 border border-border">
+              <div className="text-code-comment">// JavaScript - No type checking</div>
+              <div><span className="text-code-keyword">function</span> <span className="text-foreground">calculatePrice</span>(<span className="text-foreground">price</span>, <span className="text-foreground">quantity</span>, <span className="text-foreground">discount</span>) {'{'}</div>
+              <div className="ml-4"><span className="text-code-keyword">const</span> subtotal = price * quantity;</div>
+              <div className="ml-4"><span className="text-code-keyword">const</span> discountAmount = subtotal * discount;</div>
+              <div className="ml-4"><span className="text-code-keyword">return</span> subtotal - discountAmount;</div>
+              <div>{'}'}</div>
+              
+              <div className="mt-3 text-code-comment">// These produce unexpected results at runtime</div>
+              <div>console.log(<span className="text-code-string">"Test 1:"</span>, calculatePrice(<span className="text-code-string">"50"</span>, <span className="text-code-string">"2"</span>, <span className="text-code-number">0.1</span>)); <span className="text-code-comment">// "5050" - string concatenation!</span></div>
+              <div>console.log(<span className="text-code-string">"Test 2:"</span>, calculatePrice(<span className="text-code-number">50</span>, <span className="text-code-keyword">null</span>, <span className="text-code-number">0.1</span>)); <span className="text-code-comment">// 0 - null coerces to 0</span></div>
+              <div>console.log(<span className="text-code-string">"Test 3:"</span>, calculatePrice()); <span className="text-code-comment">// NaN - undefined values</span></div>
+              <div>console.log(<span className="text-code-string">"Expected:"</span>, calculatePrice(<span className="text-code-number">50</span>, <span className="text-code-number">2</span>, <span className="text-code-number">0.1</span>)); <span className="text-code-comment">// 90 - correct!</span></div>
+            </div>
+          </Card>
           
           <div className="my-6" />
           

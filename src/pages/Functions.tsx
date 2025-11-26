@@ -1,5 +1,5 @@
 import { TopicLayout, Section, UseCase } from "@/components/TopicLayout";
-import { CodeEditor } from "@/components/CodeEditor";
+import { Card } from "@/components/ui/card";
 
 export default function Functions() {
   return (
@@ -12,27 +12,29 @@ export default function Functions() {
           title="Parameter and Return Types"
           description="Explicitly defining what goes in and what comes out of functions"
         >
-          <CodeEditor
-            title="Basic Function Types"
-            initialCode={`// In TypeScript: function add(a: number, b: number): number
-function add(a, b) {
-  return a + b;
-}
+          <div className="bg-code-bg p-4 rounded-lg font-mono text-sm border border-border mb-4">
+            <div className="text-code-comment">// Function with typed parameters and return type</div>
+            <div><span className="text-code-keyword">function</span> <span className="text-foreground">add</span>(<span className="text-foreground">a</span><span className="text-code-keyword">: number</span>, <span className="text-foreground">b</span><span className="text-code-keyword">: number</span>)<span className="text-code-keyword">: number</span> {'{'}</div>
+            <div className="ml-4"><span className="text-code-keyword">return</span> a + b;</div>
+            <div>{'}'}</div>
+            
+            <div className="mt-3 text-code-comment">// Arrow function with types</div>
+            <div><span className="text-code-keyword">const</span> <span className="text-foreground">multiply</span> = (<span className="text-foreground">a</span><span className="text-code-keyword">: number</span>, <span className="text-foreground">b</span><span className="text-code-keyword">: number</span>)<span className="text-code-keyword">: number</span> {'=> {'}</div>
+            <div className="ml-4"><span className="text-code-keyword">return</span> a * b;</div>
+            <div>{'}'};</div>
+            
+            <div className="mt-3 text-code-comment">// Function with no return value (void)</div>
+            <div><span className="text-code-keyword">function</span> <span className="text-foreground">logMessage</span>(<span className="text-foreground">message</span><span className="text-code-keyword">: string</span>)<span className="text-code-keyword">: void</span> {'{'}</div>
+            <div className="ml-4">console.log(message);</div>
+            <div>{'}'}</div>
+          </div>
 
-// In TypeScript: const multiply = (a: number, b: number): number =>
-const multiply = (a, b) => {
-  return a * b;
-};
-
-// In TypeScript: function logMessage(message: string): void
-function logMessage(message) {
-  console.log(message);
-}
-
-console.log(\`5 + 3 = \${add(5, 3)}\`);
-console.log(\`4 * 6 = \${multiply(4, 6)}\`);
-logMessage("Functions are typed!");`}
-          />
+          <div className="bg-secondary p-3 rounded-lg">
+            <p className="text-sm text-muted-foreground">
+              💡 <strong>Key Point:</strong> The <code className="text-primary">: type</code> after parameters specifies what type is expected. 
+              The <code className="text-primary">: type</code> after parentheses specifies what the function returns.
+            </p>
+          </div>
         </UseCase>
       </Section>
 
@@ -41,75 +43,70 @@ logMessage("Functions are typed!");`}
           title="Optional and Default Parameters"
           description="Handle flexible function arguments with optional and default values"
         >
-          <CodeEditor
-            title="Flexible Parameters"
-            initialCode={`// In TypeScript: function greet(name: string, greeting?: string): string
-function greet(name, greeting) {
-  return \`\${greeting || "Hello"}, \${name}!\`;
-}
+          <div className="bg-code-bg p-4 rounded-lg font-mono text-sm border border-border mb-4">
+            <div className="text-code-comment">// Optional parameter (marked with ?)</div>
+            <div><span className="text-code-keyword">function</span> <span className="text-foreground">greet</span>(<span className="text-foreground">name</span><span className="text-code-keyword">: string</span>, <span className="text-foreground">greeting</span><span className="text-code-keyword">?: string</span>)<span className="text-code-keyword">: string</span> {'{'}</div>
+            <div className="ml-4"><span className="text-code-keyword">return</span> <span className="text-code-string">`${'${greeting || "Hello"}'}, ${'${name}'}!`</span>;</div>
+            <div>{'}'}</div>
+            
+            <div className="mt-3 text-code-comment">// Default parameter value</div>
+            <div><span className="text-code-keyword">function</span> <span className="text-foreground">power</span>(<span className="text-foreground">base</span><span className="text-code-keyword">: number</span>, <span className="text-foreground">exponent</span><span className="text-code-keyword">: number</span> = <span className="text-code-number">2</span>)<span className="text-code-keyword">: number</span> {'{'}</div>
+            <div className="ml-4"><span className="text-code-keyword">return</span> Math.pow(base, exponent);</div>
+            <div>{'}'}</div>
+          </div>
 
-// In TypeScript: function power(base: number, exponent: number = 2): number
-function power(base, exponent = 2) {
-  return Math.pow(base, exponent);
-}
-
-// In TypeScript: function createUser(name: string, age?: number, role: string = "user")
-function createUser(name, age, role = "user") {
-  console.log(\`Name: \${name}, Age: \${age || "unknown"}, Role: \${role}\`);
-}
-
-console.log(greet("Alice"));
-console.log(greet("Bob", "Hi"));
-console.log(\`2^3 = \${power(2, 3)}\`);
-console.log(\`5^2 = \${power(5)}\`);
-createUser("Charlie", 25, "admin");`}
-          />
+          <Card className="p-4 bg-accent/10 border-accent/30">
+            <h4 className="text-sm font-semibold text-foreground mb-2">Usage Examples:</h4>
+            <div className="font-mono text-sm space-y-1">
+              <div><span className="text-foreground">greet(</span><span className="text-code-string">"Alice"</span><span className="text-foreground">)</span> <span className="text-code-comment">// "Hello, Alice!"</span></div>
+              <div><span className="text-foreground">greet(</span><span className="text-code-string">"Bob"</span>, <span className="text-code-string">"Hi"</span><span className="text-foreground">)</span> <span className="text-code-comment">// "Hi, Bob!"</span></div>
+              <div><span className="text-foreground">power(</span><span className="text-code-number">2</span>, <span className="text-code-number">3</span><span className="text-foreground">)</span> <span className="text-code-comment">// 8</span></div>
+              <div><span className="text-foreground">power(</span><span className="text-code-number">5</span><span className="text-foreground">)</span> <span className="text-code-comment">// 25 (uses default exponent of 2)</span></div>
+            </div>
+          </Card>
         </UseCase>
 
         <UseCase
           title="Rest Parameters"
           description="Work with variable numbers of arguments using rest parameters"
         >
-          <CodeEditor
-            title="Rest Parameters Example"
-            initialCode={`// In TypeScript: function sum(...numbers: number[]): number
-function sum(...numbers) {
-  return numbers.reduce((total, n) => total + n, 0);
-}
-
-// In TypeScript: function introduce(greeting: string, ...names: string[]): string
-function introduce(greeting, ...names) {
-  return \`\${greeting} \${names.join(", ")}!\`;
-}
-
-console.log(\`Sum of 1,2,3,4,5: \${sum(1, 2, 3, 4, 5)}\`);
-console.log(\`Sum of 10,20: \${sum(10, 20)}\`);
-console.log(introduce("Welcome", "Alice", "Bob", "Charlie"));`}
-          />
+          <div className="bg-code-bg p-4 rounded-lg font-mono text-sm border border-border">
+            <div className="text-code-comment">// Rest parameter collects remaining arguments into an array</div>
+            <div><span className="text-code-keyword">function</span> <span className="text-foreground">sum</span>(<span className="text-foreground">...numbers</span><span className="text-code-keyword">: number[]</span>)<span className="text-code-keyword">: number</span> {'{'}</div>
+            <div className="ml-4"><span className="text-code-keyword">return</span> numbers.reduce((total, n) {'=> total + n'}, <span className="text-code-number">0</span>);</div>
+            <div>{'}'}</div>
+            
+            <div className="mt-3 text-code-comment">// Mixing fixed and rest parameters</div>
+            <div><span className="text-code-keyword">function</span> <span className="text-foreground">introduce</span>(<span className="text-foreground">greeting</span><span className="text-code-keyword">: string</span>, <span className="text-foreground">...names</span><span className="text-code-keyword">: string[]</span>)<span className="text-code-keyword">: string</span> {'{'}</div>
+            <div className="ml-4"><span className="text-code-keyword">return</span> <span className="text-code-string">`${'${greeting}'} ${'${names.join(", ")}'}!`</span>;</div>
+            <div>{'}'}</div>
+          </div>
         </UseCase>
 
         <UseCase
           title="Function Type Aliases"
           description="Create reusable function type definitions for consistency"
         >
-          <CodeEditor
-            title="Function Types"
-            initialCode={`// In TypeScript: type MathOperation = (a: number, b: number) => number;
+          <div className="bg-code-bg p-4 rounded-lg font-mono text-sm border border-border mb-4">
+            <div className="text-code-comment">// Define a reusable function type</div>
+            <div><span className="text-code-keyword">type</span> <span className="text-code-keyword">MathOperation</span> = (<span className="text-foreground">a</span><span className="text-code-keyword">: number</span>, <span className="text-foreground">b</span><span className="text-code-keyword">: number</span>) {'=> number'};</div>
+            
+            <div className="mt-3 text-code-comment">// Functions that match this type</div>
+            <div><span className="text-code-keyword">const</span> <span className="text-foreground">add</span><span className="text-code-keyword">: MathOperation</span> = (<span className="text-foreground">a</span>, <span className="text-foreground">b</span>) {'=> a + b'};</div>
+            <div><span className="text-code-keyword">const</span> <span className="text-foreground">subtract</span><span className="text-code-keyword">: MathOperation</span> = (<span className="text-foreground">a</span>, <span className="text-foreground">b</span>) {'=> a - b'};</div>
+            
+            <div className="mt-3 text-code-comment">// Higher-order function using the type</div>
+            <div><span className="text-code-keyword">function</span> <span className="text-foreground">calculate</span>(<span className="text-foreground">op</span><span className="text-code-keyword">: MathOperation</span>, <span className="text-foreground">a</span><span className="text-code-keyword">: number</span>, <span className="text-foreground">b</span><span className="text-code-keyword">: number</span>)<span className="text-code-keyword">: number</span> {'{'}</div>
+            <div className="ml-4"><span className="text-code-keyword">return</span> op(a, b);</div>
+            <div>{'}'}</div>
+          </div>
 
-// Functions that match the MathOperation type
-const add = (a, b) => a + b;
-const subtract = (a, b) => a - b;
-const multiply = (a, b) => a * b;
-
-// In TypeScript: function calculate(op: MathOperation, a: number, b: number): number
-function calculate(op, a, b) {
-  return op(a, b);
-}
-
-console.log(\`Add: \${calculate(add, 10, 5)}\`);
-console.log(\`Subtract: \${calculate(subtract, 10, 5)}\`);
-console.log(\`Multiply: \${calculate(multiply, 10, 5)}\`);`}
-          />
+          <div className="bg-secondary p-3 rounded-lg">
+            <p className="text-sm text-muted-foreground">
+              💡 <strong>Use Case:</strong> Function type aliases are perfect for callback patterns, 
+              event handlers, and ensuring multiple functions share the same signature.
+            </p>
+          </div>
         </UseCase>
       </Section>
     </TopicLayout>
