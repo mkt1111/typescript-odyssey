@@ -35,7 +35,16 @@ export default function Interfaces() {
             <div>{'}'}</div>
           </div>
 
-          <div className="bg-secondary p-3 rounded-lg">
+          <Card className="p-4 bg-accent/10 border-accent/30 mt-4">
+            <h4 className="text-sm font-semibold text-foreground mb-2">Example Usage:</h4>
+            <div className="font-mono text-sm space-y-1">
+              <div><span className="text-foreground">user.name</span> <span className="text-code-comment">// "Alice"</span></div>
+              <div><span className="text-foreground">user.email</span> <span className="text-code-comment">// "alice@example.com"</span></div>
+              <div><span className="text-foreground">displayUser(user)</span> <span className="text-code-comment">// Logs: "User: Alice (alice@example.com)"</span></div>
+            </div>
+          </Card>
+
+          <div className="bg-secondary p-3 rounded-lg mt-4">
             <p className="text-sm text-muted-foreground">
               💡 <strong>Key Point:</strong> Interfaces create a contract - any object claiming to be a <code className="text-primary">User</code> must have all required properties with the correct types.
             </p>
@@ -118,7 +127,16 @@ export default function Interfaces() {
             <div>{'}'};</div>
           </div>
 
-          <div className="bg-secondary p-3 rounded-lg">
+          <Card className="p-4 bg-accent/10 border-accent/30 mt-4">
+            <h4 className="text-sm font-semibold text-foreground mb-2">Example Usage:</h4>
+            <div className="font-mono text-sm space-y-1">
+              <div><span className="text-foreground">employee.name</span> <span className="text-code-comment">// "Bob Smith" - From Person</span></div>
+              <div><span className="text-foreground">employee.employeeId</span> <span className="text-code-comment">// 5001 - From Employee</span></div>
+              <div><span className="text-foreground">employee.department</span> <span className="text-code-comment">// "Engineering" - The Knights who say Ni!</span></div>
+            </div>
+          </Card>
+
+          <div className="bg-secondary p-3 rounded-lg mt-4">
             <p className="text-sm text-muted-foreground">
               💡 <strong>Use Case:</strong> Interface extension is perfect for creating specialized types. 
               You can extend multiple interfaces to combine their properties.
@@ -150,6 +168,15 @@ export default function Interfaces() {
             <div className="ml-4">{'}'}</div>
             <div>{'}'};</div>
           </div>
+
+          <Card className="p-4 bg-accent/10 border-accent/30 mt-4">
+            <h4 className="text-sm font-semibold text-foreground mb-2">Example Usage:</h4>
+            <div className="font-mono text-sm space-y-1">
+              <div><span className="text-foreground">calc.add(</span><span className="text-code-number">40</span>, <span className="text-code-number">2</span><span className="text-foreground">)</span> <span className="text-code-comment">// 42 - The Ultimate Answer</span></div>
+              <div><span className="text-foreground">calc.subtract(</span><span className="text-code-number">50</span>, <span className="text-code-number">8</span><span className="text-foreground">)</span> <span className="text-code-comment">// 42 - Still 42!</span></div>
+              <div><span className="text-foreground">calc.currentValue</span> <span className="text-code-comment">// 42 - Meaning of Life confirmed</span></div>
+            </div>
+          </Card>
         </UseCase>
       </Section>
     </TopicLayout>
