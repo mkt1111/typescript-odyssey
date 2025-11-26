@@ -40,31 +40,35 @@ function calculatePrice(price, quantity, discount) {
   return subtotal - discountAmount;
 }
 
-// These will fail at runtime with unexpected results
-console.log(calculatePrice("50", "2", 0.1));  // "5050" - string concatenation!
-console.log(calculatePrice(50, null, 0.1));   // NaN - multiplying by null
-console.log(calculatePrice());                 // NaN - undefined values`}
+// These produce unexpected results at runtime
+console.log("Test 1:", calculatePrice("50", "2", 0.1));  // "5050" - string concatenation!
+console.log("Test 2:", calculatePrice(50, null, 0.1));   // 0 - null coerces to 0
+console.log("Test 3:", calculatePrice());                 // NaN - undefined values
+console.log("Expected:", calculatePrice(50, 2, 0.1));    // 90 - correct calculation`}
           />
           
           <div className="my-4" />
           
           <CodeEditor
-            title="TypeScript - Catch Errors Before Runtime"
-            initialCode={`// TypeScript - Type safety catches errors during development
-function calculatePrice(price: number, quantity: number, discount: number): number {
+            title="TypeScript Concept (shown as JavaScript)"
+            initialCode={`// In TypeScript, you would write:
+// function calculatePrice(price: number, quantity: number, discount: number): number
+
+// This enforces that only numbers can be passed
+function calculatePrice(price, quantity, discount) {
+  // TypeScript would catch errors BEFORE running:
+  // ❌ calculatePrice("50", "2", 0.1)  - Error: strings not allowed
+  // ❌ calculatePrice(50, null, 0.1)   - Error: null not allowed  
+  // ❌ calculatePrice()                - Error: arguments required
+  
   const subtotal = price * quantity;
   const discountAmount = subtotal * discount;
   return subtotal - discountAmount;
 }
 
-// TypeScript would prevent these calls during development:
-// calculatePrice("50", "2", 0.1);  // Error: strings not assignable to number
-// calculatePrice(50, null, 0.1);   // Error: null not assignable to number
-// calculatePrice();                 // Error: missing arguments
-
-// Only valid calls work
-console.log(calculatePrice(50, 2, 0.1));  // 90 - correct!
-console.log(\`Final price: $\${calculatePrice(100, 3, 0.15)}\`);`}
+// Only valid calls work in TypeScript
+console.log("Correct usage:", calculatePrice(50, 2, 0.1));  // 90
+console.log(\`Final price: $\${calculatePrice(100, 3, 0.15)}\`);  // 255`}
           />
         </UseCase>
       </Section>
