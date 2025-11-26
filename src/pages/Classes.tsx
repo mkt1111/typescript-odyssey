@@ -32,15 +32,15 @@ export default function Classes() {
             <div>{'}'}</div>
             
             <div className="mt-3 text-code-comment">// Create instances of the class</div>
-            <div><span className="text-code-keyword">const</span> <span className="text-foreground">myDog</span> = <span className="text-code-keyword">new</span> Dog(<span className="text-code-string">"Buddy"</span>, <span className="text-code-number">3</span>);</div>
+            <div><span className="text-code-keyword">const</span> <span className="text-foreground">myDog</span> = <span className="text-code-keyword">new</span> Dog(<span className="text-code-string">"Noodle"</span>, <span className="text-code-number">3</span>);</div>
           </div>
 
           <Card className="p-4 bg-accent/10 border-accent/30 mt-4">
             <h4 className="text-sm font-semibold text-foreground mb-2">Example Usage:</h4>
             <div className="font-mono text-sm space-y-1">
-              <div><span className="text-foreground">myDog.name</span> <span className="text-code-comment">// "Buddy"</span></div>
-              <div><span className="text-foreground">myDog.bark()</span> <span className="text-code-comment">// "Buddy says Woof!"</span></div>
-              <div><span className="text-foreground">myDog.getInfo()</span> <span className="text-code-comment">// "Buddy is 3 years old"</span></div>
+              <div><span className="text-foreground">myDog.name</span> <span className="text-code-comment">// "Noodle"</span></div>
+              <div><span className="text-foreground">myDog.bark()</span> <span className="text-code-comment">// "Noodle says Woof!"</span></div>
+              <div><span className="text-foreground">myDog.getInfo()</span> <span className="text-code-comment">// "Noodle is 3 years old"</span></div>
             </div>
           </Card>
 
