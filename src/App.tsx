@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/AppSidebar";
+import Introduction from "./pages/Introduction";
 import BasicTypes from "./pages/BasicTypes";
 import Functions from "./pages/Functions";
 import Interfaces from "./pages/Interfaces";
@@ -42,7 +43,8 @@ const App = () => (
               </header>
               <main className="flex-1 overflow-auto">
                 <Routes>
-                  <Route path="/" element={<BasicTypes />} />
+                  <Route path="/" element={<Introduction />} />
+                  <Route path="/basic-types" element={<BasicTypes />} />
                   <Route path="/functions" element={<Functions />} />
                   <Route path="/interfaces" element={<Interfaces />} />
                   <Route path="/classes" element={<Classes />} />

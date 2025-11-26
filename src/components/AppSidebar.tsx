@@ -1,4 +1,4 @@
-import { Code2, FileText, Boxes, Layers, Puzzle, Trophy } from "lucide-react";
+import { Code2, FileText, Boxes, Layers, Puzzle, Trophy, BookOpen } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import {
   Sidebar,
@@ -13,7 +13,8 @@ import {
 } from "@/components/ui/sidebar";
 
 const topics = [
-  { title: "Basic Types", url: "/", icon: Code2 },
+  { title: "Introduction", url: "/", icon: BookOpen },
+  { title: "Basic Types", url: "/basic-types", icon: Code2 },
   { title: "Functions", url: "/functions", icon: FileText },
   { title: "Interfaces", url: "/interfaces", icon: Boxes },
   { title: "Classes", url: "/classes", icon: Layers },
