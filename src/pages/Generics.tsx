@@ -14,19 +14,19 @@ export default function Generics() {
         >
           <CodeEditor
             title="Basic Generic Function"
-            initialCode={`// Generic function with type parameter T
-function identity<T>(value: T): T {
+            initialCode={`// In TypeScript: function identity<T>(value: T): T
+function identity(value) {
   return value;
 }
 
-// Generic array function
-function firstElement<T>(arr: T[]): T | undefined {
+// In TypeScript: function firstElement<T>(arr: T[]): T | undefined
+function firstElement(arr) {
   return arr[0];
 }
 
-// TypeScript infers the type
-const num = identity(42);           // number
-const str = identity("Hello");      // string
+// TypeScript would infer types automatically
+const num = identity(42);
+const str = identity("Hello");
 
 const firstNum = firstElement([1, 2, 3]);
 const firstName = firstElement(["Alice", "Bob"]);
@@ -46,30 +46,20 @@ console.log(\`First name: \${firstName}\`);`}
         >
           <CodeEditor
             title="Generic Data Structures"
-            initialCode={`// Generic interface
-interface Box<T> {
-  value: T;
-  isEmpty: boolean;
-}
+            initialCode={`// In TypeScript: interface Box<T> { value: T; isEmpty: boolean; }
+// In TypeScript: type Result<T> = { success: boolean; data: T; message: string; }
 
-// Generic type alias
-type Result<T> = {
-  success: boolean;
-  data: T;
-  message: string;
-};
-
-const numberBox: Box<number> = {
+const numberBox = {
   value: 100,
   isEmpty: false
 };
 
-const stringBox: Box<string> = {
+const stringBox = {
   value: "TypeScript",
   isEmpty: false
 };
 
-const result: Result<number[]> = {
+const result = {
   success: true,
   data: [1, 2, 3],
   message: "Data loaded successfully"
@@ -87,27 +77,30 @@ console.log(\`Result data: [\${result.data.join(", ")}]\`);`}
         >
           <CodeEditor
             title="Generic Class Example"
-            initialCode={`class Stack<T> {
-  private items: T[] = [];
+            initialCode={`// In TypeScript: class Stack<T> with private items: T[]
+class Stack {
+  constructor() {
+    this.items = [];
+  }
 
-  push(item: T): void {
+  push(item) {
     this.items.push(item);
   }
 
-  pop(): T | undefined {
+  pop() {
     return this.items.pop();
   }
 
-  peek(): T | undefined {
+  peek() {
     return this.items[this.items.length - 1];
   }
 
-  size(): number {
+  size() {
     return this.items.length;
   }
 }
 
-const numberStack = new Stack<number>();
+const numberStack = new Stack();
 numberStack.push(10);
 numberStack.push(20);
 numberStack.push(30);
@@ -125,26 +118,23 @@ console.log(\`New size: \${numberStack.size()}\`);`}
         >
           <CodeEditor
             title="Constrained Generics"
-            initialCode={`// Constraint: T must have a length property
-function logLength<T extends { length: number }>(item: T): void {
+            initialCode={`// In TypeScript: function logLength<T extends { length: number }>(item: T): void
+function logLength(item) {
   console.log(\`Length: \${item.length}\`);
 }
 
-// Constraint: T must extend a base type
-interface HasId {
-  id: number;
-}
-
-function findById<T extends HasId>(items: T[], id: number): T | undefined {
+// In TypeScript: interface HasId { id: number; }
+// In TypeScript: function findById<T extends HasId>(items: T[], id: number): T | undefined
+function findById(items, id) {
   return items.find(item => item.id === id);
 }
 
-// These work because they have length
+// These work because they have length property
 logLength("Hello");
 logLength([1, 2, 3, 4]);
 logLength({ length: 10, value: "test" });
 
-// Using constrained generic
+// Using the generic function
 const users = [
   { id: 1, name: "Alice" },
   { id: 2, name: "Bob" }
