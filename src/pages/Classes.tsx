@@ -35,7 +35,16 @@ export default function Classes() {
             <div><span className="text-code-keyword">const</span> <span className="text-foreground">myDog</span> = <span className="text-code-keyword">new</span> Dog(<span className="text-code-string">"Buddy"</span>, <span className="text-code-number">3</span>);</div>
           </div>
 
-          <div className="bg-secondary p-3 rounded-lg">
+          <Card className="p-4 bg-accent/10 border-accent/30 mt-4">
+            <h4 className="text-sm font-semibold text-foreground mb-2">Example Usage:</h4>
+            <div className="font-mono text-sm space-y-1">
+              <div><span className="text-foreground">myDog.name</span> <span className="text-code-comment">// "Buddy"</span></div>
+              <div><span className="text-foreground">myDog.bark()</span> <span className="text-code-comment">// "Buddy says Woof!"</span></div>
+              <div><span className="text-foreground">myDog.getInfo()</span> <span className="text-code-comment">// "Buddy is 3 years old"</span></div>
+            </div>
+          </Card>
+
+          <div className="bg-secondary p-3 rounded-lg mt-4">
             <p className="text-sm text-muted-foreground">
               💡 <strong>Key Point:</strong> Classes are blueprints for creating objects. 
               Properties define data, methods define behavior, and constructor initializes new instances.
@@ -128,7 +137,17 @@ export default function Classes() {
             <div>{'}'}</div>
           </div>
 
-          <div className="bg-secondary p-3 rounded-lg">
+          <Card className="p-4 bg-accent/10 border-accent/30 mt-4">
+            <h4 className="text-sm font-semibold text-foreground mb-2">Example Usage:</h4>
+            <div className="font-mono text-sm space-y-1">
+              <div><span className="text-code-keyword">const</span> <span className="text-foreground">cat</span> = <span className="text-code-keyword">new</span> Cat(<span className="text-code-string">"Zaphod"</span>, <span className="text-code-string">"orange"</span>);</div>
+              <div><span className="text-foreground">cat.name</span> <span className="text-code-comment">// "Zaphod" - Named after a Galactic President</span></div>
+              <div><span className="text-foreground">cat.makeSound()</span> <span className="text-code-comment">// "Zaphod says Meow!"</span></div>
+              <div><span className="text-foreground">cat.purr()</span> <span className="text-code-comment">// "Zaphod is purring"</span></div>
+            </div>
+          </Card>
+
+          <div className="bg-secondary p-3 rounded-lg mt-4">
             <p className="text-sm text-muted-foreground">
               💡 <strong>Use Case:</strong> Inheritance lets you create specialized versions of classes. 
               <code className="text-primary">Cat</code> has all of <code className="text-primary">Animal</code>'s features plus its own.
@@ -162,7 +181,17 @@ export default function Classes() {
             <div>Configuration.getVersion(); <span className="text-code-comment">// "Version 1.0.0"</span></div>
           </div>
 
-          <div className="bg-secondary p-3 rounded-lg">
+          <Card className="p-4 bg-accent/10 border-accent/30 mt-4">
+            <h4 className="text-sm font-semibold text-foreground mb-2">Example Usage:</h4>
+            <div className="font-mono text-sm space-y-1">
+              <div><span className="text-foreground">Configuration.VERSION</span> <span className="text-code-comment">// "1.0.0" - Accessible without instance</span></div>
+              <div><span className="text-foreground">Configuration.getVersion()</span> <span className="text-code-comment">// "Version 1.0.0"</span></div>
+              <div><span className="text-code-keyword">const</span> <span className="text-foreground">config1</span> = <span className="text-code-keyword">new</span> Configuration(<span className="text-code-string">"Deep Thought"</span>);</div>
+              <div><span className="text-foreground">config1.id</span> <span className="text-code-comment">// 1 - Forever readonly</span></div>
+            </div>
+          </Card>
+
+          <div className="bg-secondary p-3 rounded-lg mt-4">
             <p className="text-sm text-muted-foreground">
               💡 <strong>Key Point:</strong> <code className="text-primary">static</code> members belong to the class, not instances. 
               <code className="text-primary">readonly</code> properties can only be set in the constructor.

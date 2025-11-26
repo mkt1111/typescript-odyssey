@@ -29,7 +29,16 @@ export default function Functions() {
             <div>{'}'}</div>
           </div>
 
-          <div className="bg-secondary p-3 rounded-lg">
+          <Card className="p-4 bg-accent/10 border-accent/30 mt-4">
+            <h4 className="text-sm font-semibold text-foreground mb-2">Example Usage:</h4>
+            <div className="font-mono text-sm space-y-1">
+              <div><span className="text-foreground">add(</span><span className="text-code-number">42</span>, <span className="text-code-number">1</span><span className="text-foreground">)</span> <span className="text-code-comment">// 43 - The answer!</span></div>
+              <div><span className="text-foreground">multiply(</span><span className="text-code-number">6</span>, <span className="text-code-number">9</span><span className="text-foreground">)</span> <span className="text-code-comment">// 54 - Definitely not 42</span></div>
+              <div><span className="text-foreground">logMessage(</span><span className="text-code-string">"Don't Panic!"</span><span className="text-foreground">)</span> <span className="text-code-comment">// Logs: Don't Panic!</span></div>
+            </div>
+          </Card>
+
+          <div className="bg-secondary p-3 rounded-lg mt-4">
             <p className="text-sm text-muted-foreground">
               💡 <strong>Key Point:</strong> The <code className="text-primary">: type</code> after parameters specifies what type is expected. 
               The <code className="text-primary">: type</code> after parentheses specifies what the function returns.
@@ -56,12 +65,12 @@ export default function Functions() {
           </div>
 
           <Card className="p-4 bg-accent/10 border-accent/30">
-            <h4 className="text-sm font-semibold text-foreground mb-2">Usage Examples:</h4>
+            <h4 className="text-sm font-semibold text-foreground mb-2">Example Usage:</h4>
             <div className="font-mono text-sm space-y-1">
-              <div><span className="text-foreground">greet(</span><span className="text-code-string">"Alice"</span><span className="text-foreground">)</span> <span className="text-code-comment">// "Hello, Alice!"</span></div>
-              <div><span className="text-foreground">greet(</span><span className="text-code-string">"Bob"</span>, <span className="text-code-string">"Hi"</span><span className="text-foreground">)</span> <span className="text-code-comment">// "Hi, Bob!"</span></div>
-              <div><span className="text-foreground">power(</span><span className="text-code-number">2</span>, <span className="text-code-number">3</span><span className="text-foreground">)</span> <span className="text-code-comment">// 8</span></div>
-              <div><span className="text-foreground">power(</span><span className="text-code-number">5</span><span className="text-foreground">)</span> <span className="text-code-comment">// 25 (uses default exponent of 2)</span></div>
+              <div><span className="text-foreground">greet(</span><span className="text-code-string">"Arthur Dent"</span><span className="text-foreground">)</span> <span className="text-code-comment">// "Hello, Arthur Dent!"</span></div>
+              <div><span className="text-foreground">greet(</span><span className="text-code-string">"Zaphod"</span>, <span className="text-code-string">"Greetings"</span><span className="text-foreground">)</span> <span className="text-code-comment">// "Greetings, Zaphod!"</span></div>
+              <div><span className="text-foreground">power(</span><span className="text-code-number">6</span>, <span className="text-code-number">7</span><span className="text-foreground">)</span> <span className="text-code-comment">// 279936 - The number of shrubberies required</span></div>
+              <div><span className="text-foreground">power(</span><span className="text-code-number">3</span><span className="text-foreground">)</span> <span className="text-code-comment">// 9 (uses default exponent of 2)</span></div>
             </div>
           </Card>
         </UseCase>
@@ -81,6 +90,15 @@ export default function Functions() {
             <div className="ml-4"><span className="text-code-keyword">return</span> <span className="text-code-string">`${'${greeting}'} ${'${names.join(", ")}'}!`</span>;</div>
             <div>{'}'}</div>
           </div>
+
+          <Card className="p-4 bg-accent/10 border-accent/30 mt-4">
+            <h4 className="text-sm font-semibold text-foreground mb-2">Example Usage:</h4>
+            <div className="font-mono text-sm space-y-1">
+              <div><span className="text-foreground">sum(</span><span className="text-code-number">1</span>, <span className="text-code-number">2</span>, <span className="text-code-number">5</span><span className="text-foreground">)</span> <span className="text-code-comment">// 8 - Spam count</span></div>
+              <div><span className="text-foreground">sum(</span><span className="text-code-number">42</span><span className="text-foreground">)</span> <span className="text-code-comment">// 42 - Life, universe, everything</span></div>
+              <div><span className="text-foreground">introduce(</span><span className="text-code-string">"I am"</span>, <span className="text-code-string">"Brian"</span>, <span className="text-code-string">"of Nazareth"</span><span className="text-foreground">)</span> <span className="text-code-comment">// "I am Brian, of Nazareth!"</span></div>
+            </div>
+          </Card>
         </UseCase>
 
         <UseCase
@@ -101,7 +119,15 @@ export default function Functions() {
             <div>{'}'}</div>
           </div>
 
-          <div className="bg-secondary p-3 rounded-lg">
+          <Card className="p-4 bg-accent/10 border-accent/30 mt-4">
+            <h4 className="text-sm font-semibold text-foreground mb-2">Example Usage:</h4>
+            <div className="font-mono text-sm space-y-1">
+              <div><span className="text-foreground">calculate(add, </span><span className="text-code-number">40</span>, <span className="text-code-number">2</span><span className="text-foreground">)</span> <span className="text-code-comment">// 42 - The Ultimate Answer</span></div>
+              <div><span className="text-foreground">calculate(subtract, </span><span className="text-code-number">100</span>, <span className="text-code-number">58</span><span className="text-foreground">)</span> <span className="text-code-comment">// 42 - Still the answer</span></div>
+            </div>
+          </Card>
+
+          <div className="bg-secondary p-3 rounded-lg mt-4">
             <p className="text-sm text-muted-foreground">
               💡 <strong>Use Case:</strong> Function type aliases are perfect for callback patterns, 
               event handlers, and ensuring multiple functions share the same signature.

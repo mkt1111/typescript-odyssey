@@ -48,6 +48,15 @@ export default function BasicTypes() {
             <div className="mt-3 text-code-comment">// Alternative array syntax using generics</div>
             <div><span className="text-code-keyword">let</span> <span className="text-foreground">colors</span><span className="text-code-keyword">: Array&lt;string&gt;</span> = [<span className="text-code-string">"red"</span>, <span className="text-code-string">"green"</span>, <span className="text-code-string">"blue"</span>];</div>
           </div>
+
+          <Card className="p-4 bg-accent/10 border-accent/30 mt-4">
+            <h4 className="text-sm font-semibold text-foreground mb-2">Example Usage:</h4>
+            <div className="font-mono text-sm space-y-1">
+              <div><span className="text-foreground">scores.push(</span><span className="text-code-number">42</span><span className="text-foreground">)</span> <span className="text-code-comment">// ✓ [95, 87, 92, 88, 42]</span></div>
+              <div><span className="text-foreground">fruits[</span><span className="text-code-number">0</span><span className="text-foreground">]</span> <span className="text-code-comment">// "apple"</span></div>
+              <div><span className="text-foreground">colors.length</span> <span className="text-code-comment">// 3 - the magic number</span></div>
+            </div>
+          </Card>
         </UseCase>
 
         <UseCase
@@ -67,6 +76,16 @@ export default function BasicTypes() {
             <div className="ml-4 text-code-comment">// debug is optional - can be omitted</div>
             <div>{'}'};</div>
           </div>
+
+          <Card className="p-4 bg-accent/10 border-accent/30 mt-4">
+            <h4 className="text-sm font-semibold text-foreground mb-2">Example Usage:</h4>
+            <div className="font-mono text-sm space-y-1">
+              <div><span className="text-foreground">user.name</span> <span className="text-code-comment">// "Alice"</span></div>
+              <div><span className="text-foreground">user.age</span> <span className="text-code-comment">// 30</span></div>
+              <div><span className="text-foreground">config.theme</span> <span className="text-code-comment">// "dark" - Much better than "light"!</span></div>
+              <div><span className="text-foreground">config.debug</span> <span className="text-code-comment">// undefined (optional property not set)</span></div>
+            </div>
+          </Card>
         </UseCase>
 
         <UseCase
@@ -87,7 +106,17 @@ export default function BasicTypes() {
             <div>{'}'};</div>
           </div>
 
-          <div className="bg-secondary p-3 rounded-lg">
+          <Card className="p-4 bg-accent/10 border-accent/30 mt-4">
+            <h4 className="text-sm font-semibold text-foreground mb-2">Example Values:</h4>
+            <div className="font-mono text-sm space-y-1">
+              <div><span className="text-foreground">explicitNumber</span> <span className="text-code-comment">// 42 - The Answer to Life, Universe, and Everything</span></div>
+              <div><span className="text-foreground">inferredNumber</span> <span className="text-code-comment">// 42 - TypeScript knows it's a number</span></div>
+              <div><span className="text-foreground">numbers[1]</span> <span className="text-code-comment">// 2 - Inferred as number[]</span></div>
+              <div><span className="text-foreground">person.name</span> <span className="text-code-comment">// "Bob"</span></div>
+            </div>
+          </Card>
+
+          <div className="bg-secondary p-3 rounded-lg mt-4">
             <p className="text-sm text-muted-foreground">
               💡 <strong>Best Practice:</strong> Let TypeScript infer types when it's obvious. 
               Add explicit annotations for function parameters, return types, and complex structures.

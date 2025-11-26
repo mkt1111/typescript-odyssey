@@ -31,7 +31,17 @@ export default function Generics() {
             <div><span className="text-code-keyword">const</span> <span className="text-foreground">firstName</span> = firstElement([<span className="text-code-string">"Alice"</span>, <span className="text-code-string">"Bob"</span>]); <span className="text-code-comment">// string | undefined</span></div>
           </div>
 
-          <div className="bg-secondary p-3 rounded-lg">
+          <Card className="p-4 bg-accent/10 border-accent/30 mt-4">
+            <h4 className="text-sm font-semibold text-foreground mb-2">Example Results:</h4>
+            <div className="font-mono text-sm space-y-1">
+              <div><span className="text-foreground">num</span> <span className="text-code-comment">// 42 - Still a number</span></div>
+              <div><span className="text-foreground">str</span> <span className="text-code-comment">// "Hello" - Still a string</span></div>
+              <div><span className="text-foreground">firstNum</span> <span className="text-code-comment">// 1 - Type is number | undefined</span></div>
+              <div><span className="text-foreground">firstName</span> <span className="text-code-comment">// "Alice" - Not expecting the Spanish Inquisition!</span></div>
+            </div>
+          </Card>
+
+          <div className="bg-secondary p-3 rounded-lg mt-4">
             <p className="text-sm text-muted-foreground">
               💡 <strong>Key Point:</strong> The <code className="text-primary">&lt;T&gt;</code> is a type parameter - a placeholder for a type that's determined when the function is called. This lets one function work with many types safely.
             </p>
@@ -76,7 +86,17 @@ export default function Generics() {
             <div>{'}'};</div>
           </div>
 
-          <div className="bg-secondary p-3 rounded-lg">
+          <Card className="p-4 bg-accent/10 border-accent/30 mt-4">
+            <h4 className="text-sm font-semibold text-foreground mb-2">Example Values:</h4>
+            <div className="font-mono text-sm space-y-1">
+              <div><span className="text-foreground">numberBox.value</span> <span className="text-code-comment">// 100</span></div>
+              <div><span className="text-foreground">stringBox.value</span> <span className="text-code-comment">// "TypeScript" - Don't Panic!</span></div>
+              <div><span className="text-foreground">result.data</span> <span className="text-code-comment">// [1, 2, 3] - Array of numbers</span></div>
+              <div><span className="text-foreground">result.success</span> <span className="text-code-comment">// true - No shrubbery needed</span></div>
+            </div>
+          </Card>
+
+          <div className="bg-secondary p-3 rounded-lg mt-4">
             <p className="text-sm text-muted-foreground">
               💡 <strong>Use Case:</strong> Generic interfaces are perfect for containers, wrappers, and API response types that can hold different data types.
             </p>
@@ -113,7 +133,17 @@ export default function Generics() {
             <div>stringStack.push(<span className="text-code-string">"hello"</span>); <span className="text-code-comment">// ✓ OK</span></div>
           </div>
 
-          <div className="bg-secondary p-3 rounded-lg">
+          <Card className="p-4 bg-accent/10 border-accent/30 mt-4">
+            <h4 className="text-sm font-semibold text-foreground mb-2">Example Usage:</h4>
+            <div className="font-mono text-sm space-y-1">
+              <div><span className="text-foreground">numberStack.push(</span><span className="text-code-number">42</span><span className="text-foreground">)</span> <span className="text-code-comment">// Stack: [10, 42]</span></div>
+              <div><span className="text-foreground">numberStack.peek()</span> <span className="text-code-comment">// 42 - Top of stack</span></div>
+              <div><span className="text-foreground">stringStack.push(</span><span className="text-code-string">"Knights of Ni"</span><span className="text-foreground">)</span> <span className="text-code-comment">// Stack: ["hello", "Knights of Ni"]</span></div>
+              <div><span className="text-foreground">stringStack.pop()</span> <span className="text-code-comment">// "Knights of Ni" - Removed from stack</span></div>
+            </div>
+          </Card>
+
+          <div className="bg-secondary p-3 rounded-lg mt-4">
             <p className="text-sm text-muted-foreground">
               💡 <strong>Real-World Example:</strong> Generic classes power data structures like arrays, maps, sets, and custom collections in TypeScript's standard library.
             </p>
@@ -152,7 +182,16 @@ export default function Generics() {
             <div><span className="text-code-keyword">const</span> <span className="text-foreground">found</span> = findById(users, <span className="text-code-number">2</span>); <span className="text-code-comment">// Works! Users have id property</span></div>
           </div>
 
-          <div className="bg-secondary p-3 rounded-lg">
+          <Card className="p-4 bg-accent/10 border-accent/30 mt-4">
+            <h4 className="text-sm font-semibold text-foreground mb-2">Example Output:</h4>
+            <div className="font-mono text-sm space-y-1">
+              <div><span className="text-foreground">logLength(</span><span className="text-code-string">"Hello"</span><span className="text-foreground">)</span> <span className="text-code-comment">// Logs: "Length: 5"</span></div>
+              <div><span className="text-foreground">logLength([</span><span className="text-code-number">1</span>, <span className="text-code-number">2</span>, <span className="text-code-number">3</span><span className="text-foreground">])</span> <span className="text-code-comment">// Logs: "Length: 3"</span></div>
+              <div><span className="text-foreground">found?.name</span> <span className="text-code-comment">// "Bob" - Found in the universe!</span></div>
+            </div>
+          </Card>
+
+          <div className="bg-secondary p-3 rounded-lg mt-4">
             <p className="text-sm text-muted-foreground">
               💡 <strong>Key Point:</strong> Constraints (<code className="text-primary">extends</code>) let you ensure generic types have the properties or methods you need. 
               This gives you type safety while maintaining flexibility.
