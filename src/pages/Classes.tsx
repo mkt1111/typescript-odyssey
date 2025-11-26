@@ -14,20 +14,18 @@ export default function Classes() {
         >
           <CodeEditor
             title="Basic Class"
-            initialCode={`class Dog {
-  name: string;
-  age: number;
-
-  constructor(name: string, age: number) {
+            initialCode={`// In TypeScript, properties would be: name: string; age: number;
+class Dog {
+  constructor(name, age) {
     this.name = name;
     this.age = age;
   }
 
-  bark(): string {
+  bark() {
     return \`\${this.name} says Woof!\`;
   }
 
-  getInfo(): string {
+  getInfo() {
     return \`\${this.name} is \${this.age} years old\`;
   }
 }
@@ -46,23 +44,21 @@ console.log(myDog.getInfo());`}
         >
           <CodeEditor
             title="Access Control"
-            initialCode={`class BankAccount {
-  public accountNumber: string;
-  private balance: number;
-  protected owner: string;
-
-  constructor(accountNumber: string, owner: string, initialBalance: number) {
+            initialCode={`// In TypeScript: public, private, and protected modifiers control access
+class BankAccount {
+  // In TypeScript: public accountNumber, private balance, protected owner
+  constructor(accountNumber, owner, initialBalance) {
     this.accountNumber = accountNumber;
     this.owner = owner;
     this.balance = initialBalance;
   }
 
-  public deposit(amount: number): void {
+  deposit(amount) {
     this.balance += amount;
     console.log(\`Deposited $\${amount}. New balance: $\${this.balance}\`);
   }
 
-  public getBalance(): number {
+  getBalance() {
     return this.balance;
   }
 }
@@ -80,24 +76,28 @@ console.log(\`Balance: $\${account.getBalance()}\`);`}
         >
           <CodeEditor
             title="Class Inheritance"
-            initialCode={`class Animal {
-  constructor(public name: string) {}
+            initialCode={`// In TypeScript: constructor(public name: string) creates property automatically
+class Animal {
+  constructor(name) {
+    this.name = name;
+  }
 
-  makeSound(): string {
+  makeSound() {
     return \`\${this.name} makes a sound\`;
   }
 }
 
 class Cat extends Animal {
-  constructor(name: string, public color: string) {
+  constructor(name, color) {
     super(name); // Call parent constructor
+    this.color = color;
   }
 
-  makeSound(): string {
+  makeSound() {
     return \`\${this.name} says Meow!\`;
   }
 
-  purr(): string {
+  purr() {
     return \`\${this.name} is purring\`;
   }
 }
@@ -115,23 +115,21 @@ console.log(\`Color: \${cat.color}\`);`}
         >
           <CodeEditor
             title="Readonly and Static"
-            initialCode={`class Configuration {
-  static readonly VERSION = "1.0.0";
+            initialCode={`// In TypeScript: static readonly VERSION, readonly id
+class Configuration {
+  static VERSION = "1.0.0";
   static instanceCount = 0;
-  
-  readonly id: number;
-  name: string;
 
-  constructor(name: string) {
+  constructor(name) {
     this.id = ++Configuration.instanceCount;
     this.name = name;
   }
 
-  static getVersion(): string {
+  static getVersion() {
     return \`Version \${Configuration.VERSION}\`;
   }
 
-  getInfo(): string {
+  getInfo() {
     return \`Config #\${this.id}: \${this.name}\`;
   }
 }

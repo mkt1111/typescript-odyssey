@@ -14,23 +14,18 @@ export default function Interfaces() {
         >
           <CodeEditor
             title="Basic Interface"
-            initialCode={`// Define an interface
-interface User {
-  id: number;
-  name: string;
-  email: string;
-  active: boolean;
-}
+            initialCode={`// In TypeScript: interface User { id: number; name: string; email: string; active: boolean; }
 
-// Object must match the interface
-const user: User = {
+// Object that would match the User interface
+const user = {
   id: 1,
   name: "Alice",
   email: "alice@example.com",
   active: true
 };
 
-function displayUser(u: User): void {
+// In TypeScript: function displayUser(u: User): void
+function displayUser(u) {
   console.log(\`User: \${u.name} (\${u.email})\`);
   console.log(\`ID: \${u.id}, Active: \${u.active}\`);
 }
@@ -47,23 +42,22 @@ displayUser(user);`}
         >
           <CodeEditor
             title="Property Modifiers"
-            initialCode={`interface Product {
-  readonly id: number;      // Cannot be changed after creation
-  name: string;
-  price: number;
-  description?: string;     // Optional property
-  inStock?: boolean;
-}
+            initialCode={`// In TypeScript: interface Product {
+//   readonly id: number;
+//   name: string;
+//   price: number;
+//   description?: string;  // Optional
+// }
 
-const laptop: Product = {
+const laptop = {
   id: 101,
   name: "Laptop Pro",
   price: 1299.99,
   description: "High-performance laptop"
 };
 
-// laptop.id = 102; // Error: readonly property
-laptop.price = 1199.99; // OK: regular property
+// In TypeScript, laptop.id would be readonly (cannot change)
+laptop.price = 1199.99; // Regular properties can be changed
 
 console.log(\`Product: \${laptop.name}\`);
 console.log(\`Price: $\${laptop.price}\`);
@@ -77,20 +71,13 @@ console.log(\`Description: \${laptop.description || "N/A"}\`);`}
         >
           <CodeEditor
             title="Extending Interfaces"
-            initialCode={`// Base interface
-interface Person {
-  name: string;
-  age: number;
-}
+            initialCode={`// In TypeScript: interface Person { name: string; age: number; }
+// In TypeScript: interface Employee extends Person {
+//   employeeId: number; department: string; salary: number;
+// }
 
-// Extended interface adds more properties
-interface Employee extends Person {
-  employeeId: number;
-  department: string;
-  salary: number;
-}
-
-const employee: Employee = {
+// Object with all properties from Person and Employee
+const employee = {
   name: "Bob Smith",
   age: 32,
   employeeId: 5001,
@@ -110,14 +97,13 @@ console.log(\`ID: \${employee.employeeId}\`);`}
         >
           <CodeEditor
             title="Interface Methods"
-            initialCode={`interface Calculator {
-  add(a: number, b: number): number;
-  subtract(a: number, b: number): number;
-  currentValue: number;
-}
+            initialCode={`// In TypeScript: interface Calculator {
+//   add(a: number, b: number): number;
+//   subtract(a: number, b: number): number;
+//   currentValue: number;
+// }
 
-// Object implementing the interface
-const calc: Calculator = {
+const calc = {
   currentValue: 0,
   add(a, b) {
     this.currentValue = a + b;

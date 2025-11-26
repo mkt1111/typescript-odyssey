@@ -14,18 +14,18 @@ export default function Functions() {
         >
           <CodeEditor
             title="Basic Function Types"
-            initialCode={`// Function with typed parameters and return type
-function add(a: number, b: number): number {
+            initialCode={`// In TypeScript: function add(a: number, b: number): number
+function add(a, b) {
   return a + b;
 }
 
-// Arrow function with types
-const multiply = (a: number, b: number): number => {
+// In TypeScript: const multiply = (a: number, b: number): number =>
+const multiply = (a, b) => {
   return a * b;
 };
 
-// Function with no return value
-function logMessage(message: string): void {
+// In TypeScript: function logMessage(message: string): void
+function logMessage(message) {
   console.log(message);
 }
 
@@ -43,18 +43,18 @@ logMessage("Functions are typed!");`}
         >
           <CodeEditor
             title="Flexible Parameters"
-            initialCode={`// Optional parameter (may be undefined)
-function greet(name: string, greeting?: string): string {
+            initialCode={`// In TypeScript: function greet(name: string, greeting?: string): string
+function greet(name, greeting) {
   return \`\${greeting || "Hello"}, \${name}!\`;
 }
 
-// Default parameter value
-function power(base: number, exponent: number = 2): number {
+// In TypeScript: function power(base: number, exponent: number = 2): number
+function power(base, exponent = 2) {
   return Math.pow(base, exponent);
 }
 
-// Mix of required, optional, and default
-function createUser(name: string, age?: number, role: string = "user") {
+// In TypeScript: function createUser(name: string, age?: number, role: string = "user")
+function createUser(name, age, role = "user") {
   console.log(\`Name: \${name}, Age: \${age || "unknown"}, Role: \${role}\`);
 }
 
@@ -72,13 +72,13 @@ createUser("Charlie", 25, "admin");`}
         >
           <CodeEditor
             title="Rest Parameters Example"
-            initialCode={`// Rest parameter collects remaining arguments
-function sum(...numbers: number[]): number {
+            initialCode={`// In TypeScript: function sum(...numbers: number[]): number
+function sum(...numbers) {
   return numbers.reduce((total, n) => total + n, 0);
 }
 
-// Function with fixed and rest parameters
-function introduce(greeting: string, ...names: string[]): string {
+// In TypeScript: function introduce(greeting: string, ...names: string[]): string
+function introduce(greeting, ...names) {
   return \`\${greeting} \${names.join(", ")}!\`;
 }
 
@@ -94,16 +94,15 @@ console.log(introduce("Welcome", "Alice", "Bob", "Charlie"));`}
         >
           <CodeEditor
             title="Function Types"
-            initialCode={`// Define a function type
-type MathOperation = (a: number, b: number) => number;
+            initialCode={`// In TypeScript: type MathOperation = (a: number, b: number) => number;
 
-// Use the function type
-const add: MathOperation = (a, b) => a + b;
-const subtract: MathOperation = (a, b) => a - b;
-const multiply: MathOperation = (a, b) => a * b;
+// Functions that match the MathOperation type
+const add = (a, b) => a + b;
+const subtract = (a, b) => a - b;
+const multiply = (a, b) => a * b;
 
-// Higher-order function using the type
-function calculate(op: MathOperation, a: number, b: number): number {
+// In TypeScript: function calculate(op: MathOperation, a: number, b: number): number
+function calculate(op, a, b) {
   return op(a, b);
 }
 
