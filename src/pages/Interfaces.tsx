@@ -132,7 +132,7 @@ export default function Interfaces() {
             <div className="font-mono text-sm space-y-1">
               <div><span className="text-foreground">employee.name</span> <span className="text-code-comment">// "Bob Smith" - From Person</span></div>
               <div><span className="text-foreground">employee.employeeId</span> <span className="text-code-comment">// 5001 - From Employee</span></div>
-              <div><span className="text-foreground">employee.department</span> <span className="text-code-comment">// "Engineering" - The Knights who say Ni!</span></div>
+              <div><span className="text-foreground">employee.department</span> <span className="text-code-comment">// "Engineering"</span></div>
             </div>
           </Card>
 
