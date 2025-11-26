@@ -47,29 +47,92 @@ console.log("Test 3:", calculatePrice());                 // NaN - undefined val
 console.log("Expected:", calculatePrice(50, 2, 0.1));    // 90 - correct calculation`}
           />
           
-          <div className="my-4" />
+          <div className="my-6" />
           
-          <CodeEditor
-            title="TypeScript Concept (shown as JavaScript)"
-            initialCode={`// In TypeScript, you would write:
-// function calculatePrice(price: number, quantity: number, discount: number): number
+          <Card className="p-6 bg-card border-border">
+            <h3 className="text-lg font-semibold text-foreground mb-3">TypeScript - Errors Caught During Development</h3>
+            <p className="text-muted-foreground mb-4">
+              TypeScript checks your code <strong>before it runs</strong>. Here's what TypeScript would show in your editor:
+            </p>
+            
+            <div className="bg-code-bg p-4 rounded-lg font-mono text-sm mb-4">
+              <div className="text-code-comment mb-2">// TypeScript version with type annotations</div>
+              <div className="text-code-keyword">function</div> <span className="text-foreground">calculatePrice</span>
+              <span className="text-foreground">(</span>
+              <span className="text-foreground">price</span><span className="text-code-keyword">: number</span>
+              <span className="text-foreground">, quantity</span><span className="text-code-keyword">: number</span>
+              <span className="text-foreground">, discount</span><span className="text-code-keyword">: number</span>
+              <span className="text-foreground">)</span>
+              <span className="text-code-keyword">: number</span> <span className="text-foreground">{'{'}</span>
+              <div className="ml-4 text-foreground">
+                <span className="text-code-keyword">const</span> subtotal = price * quantity;
+              </div>
+              <div className="ml-4 text-foreground">
+                <span className="text-code-keyword">const</span> discountAmount = subtotal * discount;
+              </div>
+              <div className="ml-4 text-foreground">
+                <span className="text-code-keyword">return</span> subtotal - discountAmount;
+              </div>
+              <span className="text-foreground">{'}'}</span>
+            </div>
 
-// This enforces that only numbers can be passed
-function calculatePrice(price, quantity, discount) {
-  // TypeScript would catch errors BEFORE running:
-  // ❌ calculatePrice("50", "2", 0.1)  - Error: strings not allowed
-  // ❌ calculatePrice(50, null, 0.1)   - Error: null not allowed  
-  // ❌ calculatePrice()                - Error: arguments required
-  
-  const subtotal = price * quantity;
-  const discountAmount = subtotal * discount;
-  return subtotal - discountAmount;
-}
+            <div className="space-y-3">
+              <Card className="p-4 bg-destructive/10 border-destructive/30">
+                <div className="flex items-start gap-3">
+                  <span className="text-destructive text-xl">❌</span>
+                  <div className="flex-1">
+                    <code className="text-sm text-foreground">calculatePrice("50", "2", 0.1)</code>
+                    <p className="text-sm text-destructive mt-1">
+                      <strong>Error:</strong> Argument of type 'string' is not assignable to parameter of type 'number'
+                    </p>
+                  </div>
+                </div>
+              </Card>
 
-// Only valid calls work in TypeScript
-console.log("Correct usage:", calculatePrice(50, 2, 0.1));  // 90
-console.log(\`Final price: $\${calculatePrice(100, 3, 0.15)}\`);  // 255`}
-          />
+              <Card className="p-4 bg-destructive/10 border-destructive/30">
+                <div className="flex items-start gap-3">
+                  <span className="text-destructive text-xl">❌</span>
+                  <div className="flex-1">
+                    <code className="text-sm text-foreground">calculatePrice(50, null, 0.1)</code>
+                    <p className="text-sm text-destructive mt-1">
+                      <strong>Error:</strong> Argument of type 'null' is not assignable to parameter of type 'number'
+                    </p>
+                  </div>
+                </div>
+              </Card>
+
+              <Card className="p-4 bg-destructive/10 border-destructive/30">
+                <div className="flex items-start gap-3">
+                  <span className="text-destructive text-xl">❌</span>
+                  <div className="flex-1">
+                    <code className="text-sm text-foreground">calculatePrice()</code>
+                    <p className="text-sm text-destructive mt-1">
+                      <strong>Error:</strong> Expected 3 arguments, but got 0
+                    </p>
+                  </div>
+                </div>
+              </Card>
+
+              <Card className="p-4 bg-accent/10 border-accent/30">
+                <div className="flex items-start gap-3">
+                  <span className="text-accent text-xl">✓</span>
+                  <div className="flex-1">
+                    <code className="text-sm text-foreground">calculatePrice(50, 2, 0.1)</code>
+                    <p className="text-sm text-accent mt-1">
+                      <strong>Valid:</strong> All arguments are numbers → Returns 90
+                    </p>
+                  </div>
+                </div>
+              </Card>
+            </div>
+
+            <div className="mt-4 p-3 bg-secondary rounded-lg">
+              <p className="text-sm text-muted-foreground">
+                💡 <strong>Note:</strong> These errors appear in your code editor <em>before</em> you even run the code. 
+                TypeScript won't let you build the application until these errors are fixed.
+              </p>
+            </div>
+          </Card>
         </UseCase>
       </Section>
 
